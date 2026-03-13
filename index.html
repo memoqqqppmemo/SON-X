@@ -6,34 +6,49 @@
     <title>SONİX | Profilim</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #0f172a; color: white; font-family: sans-serif; }
+        /* Arka plan animasyonu */
+        body { 
+            margin: 0; padding: 0; 
+            background: linear-gradient(270deg, #000000, #0a0a0a, #001a00);
+            background-size: 600% 600%;
+            animation: hackerBackground 10s ease infinite;
+            color: white; font-family: 'Courier New', Courier, monospace;
+        }
+        @keyframes hackerBackground {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
         .btn { 
             display: flex; align-items: center; justify-content: center;
-            width: 100%; padding: 16px; margin-bottom: 15px;
-            border-radius: 15px; font-weight: bold; font-size: 18px;
-            transition: 0.3s;
+            width: 90%; max-width: 400px; padding: 16px; margin-bottom: 15px;
+            border-radius: 10px; font-weight: bold; font-size: 18px;
+            transition: 0.3s; border: 1px solid #00ff41;
+            background: rgba(0, 0, 0, 0.6);
         }
-        .btn:active { transform: scale(0.95); }
+        .btn:hover { background: #00ff41; color: black; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 3px solid #00ff41; object-fit: cover; box-shadow: 0 0 20px #00ff41; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-5">
+<body class="flex flex-col items-center justify-center min-h-screen p-5" onclick="startAudio()">
 
-    <h1 class="text-4xl font-bold mb-10 text-blue-500">SONİX</h1>
+    <img src="https://i.imgur.com/7g4P8nK.png" alt="Profil" class="profile-img mb-6">
+    <h1 class="text-4xl font-bold mb-8 text-green-500 tracking-widest">SONİX</h1>
 
-    <a href="https://instagram.com/@sshack_sonix" target="_blank" 
-       class="btn bg-gradient-to-r from-purple-600 to-pink-600">
-        Instagram
-    </a>
+    <audio id="myAudio" loop>
+        <source src="https://files.catbox.moe/u0152j.mp3" type="audio/mpeg">
+    </audio>
 
-    <a href="https://tiktok.com/axaaxxsx5_" target="_blank" 
-       class="btn bg-black border border-gray-600">
-        TikTok
-    </a>
+    <a href="https://instagram.com/@sshack_sonix" target="_blank" class="btn text-pink-500">Instagram</a>
+    <a href="https://tiktok.com/axaaxxsx5_" target="_blank" class="btn text-white">TikTok</a>
+    <a href="https://t.me/sonixHACK" target="_blank" class="btn text-blue-500">Telegram</a>
 
-    <a href="https://t.me/sonixHACK" target="_blank" 
-       class="btn bg-blue-500">
-        Telegram
-    </a>
-
+    <script>
+        // Sayfaya herhangi bir yere dokunulduğunda müzik başlar
+        function startAudio() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
 </body>
 </html>
