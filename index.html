@@ -3,138 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SONİX | Mehmet SS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>SONİX // Otonom Mesaj Yönlendirici</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        :root {
-            --accent: #00f2ff;
-            --bg: #050505;
-            --card-bg: #111;
-            --text: #ffffff;
-            --insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            --tiktok: #000000;
-            --telegram: #0088cc;
+        /* Siber Neon Görsel Efektler */
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.25), inset 0 0 10px rgba(34, 197, 94, 0.1);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text); overflow-x: hidden; }
-
-        .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
-            z-index: -1;
+        .neon-text {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
         }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+        /* Arka plan siber grid çizgileri animasyonu */
+        .cyber-bg {
+            background-image: linear-gradient(rgba(34, 197, 94, 0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(34, 197, 94, 0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: gridMove 20s linear infinite;
         }
-
-        .profile-img {
-            width: 150px; height: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 25px var(--accent);
-            margin-bottom: 25px;
-            object-fit: cover;
-            animation: pulse 2s infinite;
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
         }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 10px var(--accent); }
-            50% { box-shadow: 0 0 30px var(--accent); }
-            100% { box-shadow: 0 0 10px var(--accent); }
-        }
-
-        .hero h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 5px; }
-        .hero p { font-size: 1.1rem; color: #888; margin-bottom: 30px; letter-spacing: 2px; }
-
-        /* --- SOSYAL MEDYA BUTONLARI --- */
-        .socials {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        .social-link {
-            text-decoration: none;
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-            text-align: center;
-            display: block;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .insta-btn { background: var(--insta); }
-        .tiktok-btn { background: var(--tiktok); border-color: #ff0050; box-shadow: -2px -2px 0px #ff0050, 2px 2px 0px #00f2ff; }
-        .tele-btn { background: var(--telegram); }
-
-        .social-link:hover { transform: scale(1.05); filter: brightness(1.2); }
-
-        /* --- KONTEYNER --- */
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { font-size: 1.8rem; margin-bottom: 30px; text-align: center; color: var(--accent); }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid #222;
-        }
-        .card h3 { margin-bottom: 10px; color: var(--accent); }
-        .card p { color: #888; font-size: 0.9rem; }
-
-        footer { text-align: center; padding: 40px; color: #333; font-size: 0.8rem; }
     </style>
 </head>
-<body>
+<body class="bg-gray-950 text-gray-100 min-h-screen font-sans cyber-bg select-none">
 
-    <div class="bg-glow"></div>
-
-    <section class="hero">
-        <img src="https://i.ibb.co/xSWc9JWM/mehmet.jpg" alt="SONİX" class="profile-img">
-        
-        <h1>SONİX</h1>
-        <p>@mehmet_ss47</p>
-        
-        <div class="socials">
-            <a href="https://www.instagram.com/mehmet_ss47/" target="_blank" class="social-link insta-btn">Instagram</a>
-            <a href="https://www.tiktok.com/@sonixhack7?_r=1&_t=ZS-96BijxKZqsR" target="_blank" class="social-link tiktok-btn">TikTok</a>
-            <a href="https://t.me/ss1sonix" target="_blank" class="social-link tele-btn">Telegram</a>
+    <header class="border-b border-green-500/30 bg-gray-900/40 backdrop-blur-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div id="status-dot" class="h-3 w-3 rounded-full bg-red-500 transition-all duration-500"></div>
+            <h1 class="text-xl font-mono font-bold tracking-widest text-green-400 neon-text animate-pulse">SONİX // NET_FORWARDER</h1>
         </div>
-    </section>
+        <div class="text-xs font-mono text-gray-400 bg-gray-950/80 px-3 py-1.5 rounded-lg border border-gray-800 flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-ping"></span>
+            GÜVENLİK: <span class="text-green-400 font-bold">ENCRYPTED</span>
+        </div>
+    </header>
 
-    <div class="container">
-        <h2 class="section-title">Neler Yapıyorum?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Yazılım & Termux</h3>
-                <p>Python ve otomasyon araçları üzerine çalışmalar geliştiriyorum.</p>
+    <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="lg:col-span-1 bg-gray-900/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-800/80 neon-glow h-fit transition-all duration-300 hover:border-green-500/30">
+            <h2 class="text-sm font-mono font-bold text-green-400 mb-6 tracking-wider flex items-center gap-2">
+                🔒 GÜVENLİ YAPILANDIRMA
+            </h2>
+            
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-[11px] font-mono text-gray-400 mb-2 font-bold uppercase tracking-wider">1. Kaynak Bot Token</label>
+                    <div class="relative flex items-center">
+                        <input type="password" id="bot-token" placeholder="8717296069:AAFUun..." class="w-full bg-gray-950 border border-gray-800 rounded-xl p-3 pr-10 text-xs font-mono text-gray-200 focus:outline-none focus:border-green-500/50 transition-all duration-200">
+                        <button onclick="toggleTokenVisibility()" class="absolute right-3 cursor-pointer text-gray-500 hover:text-green-400 transition-colors">
+                            <span id="eye-icon" class="text-sm font-mono font-bold">👁️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-mono text-gray-400 mb-2 font-bold uppercase tracking-wider">2. Yönlendirilecek Hedef ID</label>
+                    <input type="text" id="target-id" placeholder="8915290445" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-3 text-xs font-mono text-gray-200 focus:outline-none focus:border-green-500/50 transition-all duration-200">
+                </div>
+
+                <div class="pt-2">
+                    <button id="action-btn" onclick="toggleSystem()" class="w-full cursor-pointer bg-green-500 hover:bg-green-400 hover:scale-[1.02] text-gray-950 font-bold py-3.5 px-4 rounded-xl text-xs font-mono tracking-widest transition-all duration-300 shadow-lg shadow-green-500/10">
+                        SİSTEMİ DEVREYE AL ⚡
+                    </button>
+                </div>
             </div>
-            <div class="card">
-                <h3>Dijital Güvenlik</h3>
-                <p>Ağ analizleri ve siber güvenlik simülasyonları ile ilgileniyorum.</p>
+
+            <div class="mt-6 p-3 bg-gray-950/80 rounded-xl border border-gray-900 text-[11px] text-gray-500 font-mono leading-relaxed">
+                🛡️ <span class="text-gray-400">Güvenlik Notu:</span> Girdiğiniz token bilgileri hiçbir uzak sunucuya kaydedilmez. Tamamen sizin tarayıcı hafızanızda şifreli olarak saklanır.
             </div>
         </div>
-    </div>
 
-    <footer>
-        &copy; 2026 SONİX (Mehmet SS). Tüm Hakları Saklıdır.
-    </footer>
+        <div class="lg:col-span-2 space-y-3">
+            <div class="flex justify-between items-center px-1">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-green-500/70 font-bold">Canlı Veri Trafiği LOG_DATA</h3>
+                <span id="console-status" class="text-[10px] font-mono text-gray-500">BEKLENİYOR</span>
+            </div>
+            
+            <div id="logs-container" class="bg-gray-950/90 backdrop-blur-sm border border-gray-800/80 rounded-2xl p-5 font-mono text-xs text-gray-400 h-[460px] overflow-y-auto space-y-2 flex flex-col-reverse justify-end shadow-inner">
+                <div class="text-gray-600 text-center py-24 transition-opacity duration-500">
+                    <div class="text-2xl mb-2 animate-bounce">⚡</div>
+                    Yönlendirme başlatılmadı. Verileri girip sistemi aktif edin.
+                </div>
+            </div>
+        </div>
 
+    </main>
+
+    <script>
+        let isRunning = false;
+        let intervalId = null;
+        let lastUpdateId = 0;
+
+        // Tarayıcı hafızasından eski verileri güvenli yükle
+        window.onload = function() {
+            if(localStorage.getItem("sx_token")) document.getElementById("bot-token").value = localStorage.getItem("sx_token");
+            if(localStorage.getItem("sx_target")) document.getElementById("target-id").value = localStorage.getItem("sx_target");
+        }
+
+        // Şifre Göster / Gizle fonksiyonu
+        function toggleTokenVisibility() {
+            const tokenInput = document.getElementById("bot-token");
+            const eyeIcon = document.getElementById("eye-icon");
+            if (tokenInput.type === "password") {
+                tokenInput.type = "text";
+                eyeIcon.innerText = "🕶️";
+            } else {
+                tokenInput.type = "password";
+                eyeIcon.innerText = "👁️";
+            }
+        }
+
+        // Ekrana Şık Log Yazma Fonksiyonu (Animasyonlu)
+        function addLog(message, type = "info") {
+            const container = document.getElementById("logs-container");
+            if (container.querySelector(".text-gray-600")) container.innerHTML = "";
+
+            const time = new Date().toLocaleTimeString();
+            let color = "text-gray-400 border-gray-900";
+            if (type === "success") color = "text-green-400 border-green-950 bg-green-950/10 font-bold neon-text";
+            if (type === "error") color = "text-red-400 border-red-950 bg-red-950/10 font-bold";
+            if (type === "warn") color = "text-yellow-400 border-yellow-950 bg-yellow-950/10";
+
+            const logItem = document.createElement("div");
+            logItem.className = `p-2.5 rounded-lg border opacity-0 transition-opacity duration-500 flex flex-col gap-1 ${color}`;
+            logItem.innerHTML = `<span class="text-[10px] text-gray-500 font-bold">[${time}]</span> <span>${message}</span>`;
+            
+            container.insertBefore(logItem, container.firstChild);
+            
+            // Yumuşak açılış efekti için (Fade-in)
+            setTimeout(() => { logItem.classList.remove("opacity-0"); }, 50);
+        }
+
+        // Sistemi Başlatma / Durdurma Geçişi
+        function toggleSystem() {
+            const token = document.getElementById("bot-token").value.trim();
+            const targetId = document.getElementById("target-id").value.trim();
+            const btn = document.getElementById("action-btn");
+            const dot = document.getElementById("status-dot");
+            const consoleStatus = document.getElementById("console-status");
+
+            if (!token || !targetId) {
+                alert("Lütfen eksik alanları doldurun!");
+                return;
+            }
+
+            if (!isRunning) {
+                // Güvenli yerel kayıt
+                localStorage.setItem("sx_token", token);
+                localStorage.setItem("sx_target", targetId);
+
+                isRunning = true;
+                btn.innerText = "KILITLI SISTEMI DURDUR ✕";
+                btn.className = "w-full cursor-pointer bg-red-950/50 text-red-400 border border-red-800 hover:bg-red-900 hover:text-gray-950 font-bold py-3.5 px-4 rounded-xl text-xs font-mono tracking-widest transition-all duration-300 shadow-lg shadow-red-500/10";
+                dot.className = "h-3 w-3 rounded-full bg-green-500 shadow-[0_0_15px_#22c55e] animate-pulse";
+                consoleStatus.innerText = "LIVE_STREAMING";
+                consoleStatus.className = "text-green-400 font-mono font-bold animate-pulse";
+
+                addLog("Otonom tünel aktif edildi. Sinyal aranıyor...", "success");
+                
+                // Eski mesajları atlamak için ilk eşleşme
+                checkAndForward(token, targetId, true);
+
+                // 3 saniyede bir döngü
+                intervalId = setInterval(() => {
+                    checkAndForward(token, targetId, false);
+                }, 3000);
+
+            } else {
+                // Sistemi Durdur
+                clearInterval(intervalId);
+                isRunning = false;
+                btn.innerText = "SİSTEMİ DEVREYE AL ⚡";
+                btn.className = "w-full cursor-pointer bg-green-500 hover:bg-green-400 hover:scale-[1.02] text-gray-950 font-bold py-3.5 px-4 rounded-xl text-xs font-mono tracking-widest transition-all duration-300 shadow-lg shadow-green-500/10";
+                dot.className = "h-3 w-3 rounded-full bg-red-500 shadow-none";
+                consoleStatus.innerText = "STOPPED";
+                consoleStatus.className = "text-red-400 font-mono font-bold";
+                addLog("Sistem bağlantısı güvenli bir şekilde kesildi.", "warn");
+            }
+        }
+
+        // Telegram Mesaj Dinleme ve İşleme Odası
+        async function checkAndForward(token, targetId, isFirstRun) {
+            try {
+                let url = `https://api.telegram.org/bot${token}/getUpdates?timeout=0`;
+                if (lastUpdateId > 0) {
+                    url += `&offset=${lastUpdateId + 1}`;
+                }
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.ok && data.result.length > 0) {
+                    for (const update of data.result) {
+                        lastUpdateId = update.update_id;
+
+                        if (isFirstRun) continue; // İlk açılışta eskilere işlem yapma
+
+                        if (update.message) {
+                            const msg = update.message;
+                            
+                            // Kullanıcı Verilerini Detaylı Çekiyoruz
+                            const senderId = msg.from.id;
+                            const senderName = msg.from.first_name || "Gizli Kullanıcı";
+                            const username = msg.from.username ? `@${msg.from.username}` : "Kullanıcı Adı Yok";
+                            const text = msg.text;
+
+                            if (text) {
+                                addLog(`Veri Yakalandı -> Gönderen: ${senderName} (ID: ${senderId})`, "info");
+                                
+                                // Hedef bota zengin içerikle yönlendiriyoruz
+                                await forwardToTarget(token, targetId, senderName, username, senderId, text);
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                addLog("Bağlantı kesintisi: Telegram API sinyali zayıf.", "error");
+            }
+        }
+
+        // Yeni Gelişmiş Mesaj Yönlendirme Şablonu
+        async function forwardToTarget(token, targetId, senderName, username, senderId, text) {
+            try {
+                // İstediğin tüm bilgiler (Ad, Kullanıcı Adı, ID) artık burada paketleniyor
+                const formatMessage = `📥 Yeni Mesaj Alındı\n\n👤 Adı: ${senderName}\n🏷️ K. Adı: ${username}\n🆔 ID: ${senderId}\n\n💬 Mesaj:\n${text}`;
+                
+                const sendUrl = `https://api.telegram.org/bot${token}/sendMessage`;
+
+                const response = await fetch(sendUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: targetId,
+                        text: formatMessage
+                    })
+                });
+                const data = await response.json();
+
+                if (data.ok) {
+                    addLog(`=> Başarıyla İletildi -> Hedef ID: ${targetId}`, "success");
+                } else {
+                    addLog(`=> İletim Hatası: Bot hedef kanalda yetkisiz veya ID geçersiz.`, "error");
+                }
+            } catch (e) {
+                addLog("=> İletim sırasında kritik cihaz hatası!", "error");
+            }
+        }
+    </script>
 </body>
 </html>
